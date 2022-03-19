@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    gifsContainer.innerHTML = null;
     let searchValue = form.children[0].value;
     let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=20&q=${searchValue}`
     audio.play();
@@ -22,13 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
           let gifCont = document.createElement('div')
           gifCont.classList.add('gif-cont')
           let img = document.createElement('img')
-          let title = document.createElement('figcaption')
+          // let title = document.createElement('figcaption')
           // img.style.height = (i % 2 === 1) ? '400px' : '200px';
           img.src = gif.images.downsized.url;
-          title.textContent = gif.title;
-          title.style.textAlign = 'center';
+          // title.textContent = gif.title;
+          // title.style.textAlign = 'center';
           gifCont.appendChild(img);
-          gifCont.appendChild(title);
+          // gifCont.appendChild(title);
           gifsContainer.appendChild(gifCont);
         });
       })

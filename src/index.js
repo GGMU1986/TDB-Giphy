@@ -11,34 +11,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const gifsContainer = document.getElementById('gifs-container');
   const noSearchValue = document.createElement('div');
   noSearchValue.classList.add('no-search')
-  noSearchValue.textContent = 'PLEASE ENTER SOMETHING IN SEARCH'
+  noSearchValue.textContent = 'PLEASE MODIFY YOUR SEARCH'
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     gifsContainer.textContent = null;
-    let searchValue = form.children[0].value;
+    let searchValue = form.children[0].value.trim();
     let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=20&q=${searchValue}`
-    if (searchValue){
-      audioYeet.play();
-      fetch(url)
-        .then(res => res.json())
-        .then(content => {
-          content.data.forEach((gif, i) => {
-            let gifCont = document.createElement('div')
-            gifCont.classList.add('gif-cont')
-            let img = document.createElement('img')
-            img.src = gif.images.downsized.url;
-            gifCont.appendChild(img);
-            gifsContainer.appendChild(img);
-          });
-        })
-        .catch(err => console.error(err))
-      input.value = '';
-    } else {
-      gifsContainer.append(noSearchValue)
-      audioCmon.play();
-    }
+    fetch(url)
+    .then(res => res.json())
+    .then(content => {
+      console.log(content.data)
+      if (content.data.length){
+        audioYeet.play();
+        content.data.forEach(gif => {
+          let gifCont = document.createElement('div')
+          gifCont.classList.add('gif-cont')
+          let img = document.createElement('img')
+          img.src = gif.images.downsized.url;
+          gifCont.appendChild(img);
+          gifsContainer.appendChild(img);
+        });
+      } else {
+        gifsContainer.append(noSearchValue)
+        audioCmon.play();
+      }
+    })
+    .catch(err => console.error(err))
+    input.value = '';
   });
-
-
 });

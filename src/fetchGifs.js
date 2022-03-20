@@ -1,6 +1,7 @@
 
 export const fetchGifs = (url) => {
 
+  const loadCont = document.getElementById('loading-container')
   const audioCmon = document.createElement('audio')
   audioCmon.src = './sounds/cmon.mp3';
   const gifsContainer = document.getElementById('gifs-container');
@@ -18,6 +19,7 @@ export const fetchGifs = (url) => {
           let img = document.createElement('img')
           img.src = gif.images.downsized.url;
           gifCont.appendChild(img);
+          loadCont.style.display = 'none';
           gifsContainer.appendChild(img);
         });
       } else {

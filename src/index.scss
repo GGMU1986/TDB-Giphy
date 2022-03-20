@@ -50,7 +50,7 @@ button{
 
 #gifs-container{
   position: relative;
-  margin: 10%;
+  margin: 100px;
   column-count: 4;
 }
 
@@ -75,4 +75,54 @@ img{
   left: -100px;
   width: 250px;
   height: 400px;
+}
+
+#loading-container{
+  display: none;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 25px;
+}
+
+.loading{
+  display: flex;
+}
+
+.dot{
+  background-color: black;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 3px;
+  animation: jump 0.5s ease-in infinite;
+}
+
+.dot:nth-of-type(2){
+  animation-delay: 0.1s;
+}
+
+.dot:nth-of-type(3){
+  animation-delay: 0.2s;
+}
+
+@keyframes jump {
+ 
+  0% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  
+  25% {
+    opacity: 0.25;
+  }
+  
+  50% {
+    opacity: 1;
+    transform: translateY(-10PX);
+  }
+
+  75% {
+    opacity: 0.75;
+  }
+
 }

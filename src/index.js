@@ -1,5 +1,7 @@
+import { setTimeout } from 'core-js';
 import { fetchGifs } from './fetchGifs';
 import { getUrl } from './getUrl';
+import { loadingAnimation } from './loadingAnimation';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -29,8 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
     } = document.documentElement;
 
     if (clientHeight + scrollTop >= scrollHeight - 5){
-      fetchGifs(getUrl(searchValue, count))
-      count += 1;
+      loadingAnimation();
+      setTimeout(() => {
+        fetchGifs(getUrl(searchValue, count))
+        count += 1;
+      }, 1000);
     }
   })
 

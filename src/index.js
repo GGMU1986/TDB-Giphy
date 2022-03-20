@@ -7,12 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById('input');
   const gifsContainer = document.getElementById('gifs-container');
   let searchValue;
+  let count = 0;
+
+  const gifLogo = document.createElement('img')
+  gifLogo.classList.add('logo')
+  gifLogo.src = './images/logo.gif'
+  gifsContainer.appendChild(gifLogo);
   
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     gifsContainer.textContent = null;
     searchValue = form.children[0].value.trim();
-    fetchGifs(getUrl(searchValue));
+    fetchGifs(getUrl(searchValue, count));
     input.value = '';
   });
 
@@ -23,7 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } = document.documentElement;
 
     if (clientHeight + scrollTop >= scrollHeight - 5){
-      fetchGifs(getUrl(searchValue))
+      fetchGifs(getUrl(searchValue, count))
+      count += 1;
     }
   })
 

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const container = document.getElementById('container')
   const gifsContainer = document.getElementById('gifs-container');
-  
+
   const topBtn = document.createElement('div');
   const topBtnText = document.createElement('p');
   topBtnText.textContent = 'back to top';
@@ -46,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (scrollTop > 20){
       topBtn.style.display = 'block';
+    } else {
+      topBtn.style.display = 'none';
     }
 
     if (clientHeight + scrollTop >= scrollHeight - 5){

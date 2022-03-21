@@ -6,6 +6,9 @@ import { backToTop } from './backToTop';
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  const container = document.getElementById('container')
+  const gifsContainer = document.getElementById('gifs-container');
+  
   const topBtn = document.createElement('div');
   const topBtnText = document.createElement('p');
   topBtnText.textContent = 'back to top';
@@ -22,10 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   gifsContainer.appendChild(gifLogo);
 
 
-  const container = document.getElementById('container')
   const form = document.getElementById('form');
   const input = document.getElementById('input');
-  const gifsContainer = document.getElementById('gifs-container');
   let searchValue;
   let count = 0;
 

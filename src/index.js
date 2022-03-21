@@ -6,14 +6,6 @@ import { backToTop } from './backToTop';
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const container = document.getElementById('container')
-  const form = document.getElementById('form');
-  const input = document.getElementById('input');
-  const gifsContainer = document.getElementById('gifs-container');
-  let searchValue;
-  let count = 0;
-
-  
   const topBtn = document.createElement('div');
   const topBtnText = document.createElement('p');
   topBtnText.textContent = 'back to top';
@@ -23,11 +15,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   topBtn.addEventListener('click', backToTop)
 
+  
   const gifLogo = document.createElement('img')
   gifLogo.classList.add('logo')
   gifLogo.src = './images/logo.gif'
   gifsContainer.appendChild(gifLogo);
-  
+
+
+  const container = document.getElementById('container')
+  const form = document.getElementById('form');
+  const input = document.getElementById('input');
+  const gifsContainer = document.getElementById('gifs-container');
+  let searchValue;
+  let count = 0;
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     gifsContainer.textContent = null;

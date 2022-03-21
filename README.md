@@ -2,6 +2,8 @@
 
 Welcome to my Giphy Grabber. This app was built with the the Giphy API and Vanilla JavaScript. 
 
+[Link](https://ggmu1986.github.io/TDB-Giphy/) to the live site.
+
 ## Instructions to build App
 
 1. clone the repo and open it in the text editor of your choice
